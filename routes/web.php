@@ -34,3 +34,5 @@ Route::put('title/update/{id}', [ElectionTitleController::class, 'update'])->nam
 Route::get('candidate', [CandidateController::class, 'index'])->name('candidate');
 Route::get('candidate/create', [CandidateController::class, 'create'])->name('candidate.create');
 Route::post('candidate/store', [CandidateController::class, 'store'])->name('candidate.store');
+Route::get('candidate/edit/{id}', [CandidateController::class, 'edit'])->name('candidate.edit');
+Route::put('candidate/update/{id}', [CandidateController::class, 'update'])->name('candidate.update');

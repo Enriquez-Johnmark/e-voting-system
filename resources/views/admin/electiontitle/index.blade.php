@@ -63,7 +63,7 @@
     @endif
     
 <!--  <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#addProduct">Add Products</button> -->
-    <button type="button" class="btn btn-primary waves-effect waves-light" id="add_product">Add Title</button>
+    <!-- <button type="button" class="btn btn-primary waves-effect waves-light" id="add_product">Add Title</button> -->
 
 
     <br><br>
@@ -148,11 +148,7 @@ $('#add_product').click(function () {
 });
 </script>
 
-<script>
-$('.edit_product').click(function () {
-    $('#product_content').load("{{ url('title/edit/'.$title->id )}}");
-});
-</script>
+
 
 
 

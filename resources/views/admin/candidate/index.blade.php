@@ -75,6 +75,7 @@
                                                 <th>Full Name</th>
                                                 <th>Grade & Section</th>
                                                 <th>Date of Birth</th>
+                                                <th>Category</th>
                                                 <th>Actions </th>
                                                 
                                                 
@@ -91,21 +92,13 @@
                                                 <td> {{ $candidate->firstname}}  {{ $candidate->lastname}}   </td>
                                                 <td> {{ $candidate->grade_section}}   </td>
                                                 <td> {{ $candidate->date_of_birth}}   </td>
+                                                <td> {{ $candidate->category}}   </td>
                                                 
                                                 
                                                     <td>
-                                                    <span class="dropdown">
-                                                        <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="dropdown" aria-expanded="true">
-                                                            <i class="la la-ellipsis-h"></i>
-                                                        </a>
-                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                            <a class="dropdown-item" href=""><i class="la la-eye"></i> Show Details</a>
-                                                            <a class="dropdown-item" href=""><i class="la la-plus"></i> Add Variant</a>
-                                                            
-                                                        </div>
-                                                    </span>
-                                                    <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="View">
-                                                        <i class="la la-edit"></i>
+                                                    
+                                                    <a href="{{route('candidate.edit',$candidate->id)}}" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Edit">
+                                                        <i class="flaticon-edit-1"></i>
                                                     </a>
                                                 </td>
 
