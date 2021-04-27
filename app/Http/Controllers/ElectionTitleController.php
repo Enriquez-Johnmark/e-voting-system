@@ -37,7 +37,7 @@ class ElectionTitleController extends Controller
         $electionTitle = ElectionTitle::findOrFail($request->id);
         $electionTitle->name = $data['name'];
         $electionTitle->save();
-        return redirect('/title')->with('success', 'Data has been Updated successfully'); 
+        return redirect('/admin/title')->with('success', 'Data has been Updated successfully'); 
     }
 
 }

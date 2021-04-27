@@ -10,5 +10,9 @@ class ElectionTitle extends Model
     use HasFactory;
     
     protected $table = 'election_title';
+
+    protected $fillable = [
+        'name',  
+    ];
     protected $guarded = []; 
 }

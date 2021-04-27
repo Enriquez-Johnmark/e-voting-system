@@ -110,9 +110,11 @@ License: You must have a valid license purchased only from themeforest(the above
     <div class="kt-grid kt-grid--hor kt-grid--root">
         <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver kt-page">
             <!-- begin:: Aside -->
-
+            @if( Auth::user()->role == 1)
             @include('layouts.sidebar')
-
+            @else
+            @include('layouts.usersidebar')
+            @endif
 
 
            <!-- end:: Aside -->
