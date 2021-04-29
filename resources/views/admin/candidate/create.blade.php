@@ -94,7 +94,7 @@
                       <label class="col-3 col-form-label">Date of Birth:*</label>
                       <div class="col-8">
                         <div class="input-group date">
-                          <input type="text" class="form-control" name="date_of_birth" readonly="" placeholder="Select date" id="kt_datepicker_2" required="">
+                          <input type="text" class="form-control" name="date_of_birth" readonly="" placeholder="Select date" id="kt_datepicker_3" required="">
                           <div class="input-group-append">
                             <span class="input-group-text">
                               <i class="la la-calendar-check-o"></i>

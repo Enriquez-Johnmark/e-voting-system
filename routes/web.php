@@ -6,6 +6,7 @@ use App\Http\Controllers\ElectionTitleController;
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\VoterController;
 use App\Http\Controllers\AdminVoterController;
+use App\Http\Controllers\VoteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,6 +57,8 @@ Route::group(['prefix'=>'user','middleware'=>['isVoter','auth']],function(){
 
     Route::get('dashboard', [VoterController::class, 'index'])->name('voter.dashboard');
     Route::get('lists', [VoterController::class, 'showCandidate'])->name('voter.candidate');
+    Route::post('lists/votes', [VoteController::class, 'store'])->name('vote.store');
+
 
 });
 

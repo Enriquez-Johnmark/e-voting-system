@@ -87,9 +87,9 @@
 						
 						<div class="kt-login__actions">
 							<button id="kt_login_signup_submit" class="btn btn-brand btn-pill kt-login__btn-primary">Sign Up</button>&nbsp;&nbsp;
-                            <button id="kt_login_signup_cancel" class="btn btn-secondary btn-pill kt-login__btn-secondary"><a href="{{ url('/login')}}" >
-                            Cancel
-                            </button> </a>
+                            <a  id="kt_login_signup_cancel" style="padding:15px 25px 15px 25px;" class="btn btn-secondary btn-pill" href="{{ route('login')}}">
+														Cancel
+                             </a>
                         </div>
 					</form>
 				</div>

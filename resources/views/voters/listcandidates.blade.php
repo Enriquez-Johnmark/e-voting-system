@@ -11,7 +11,8 @@
 		
 
 	<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
-   
+    <form class="kt-form" method="post" action="{{ route('vote.store')}}" enctype="multipart/form-data">
+    @csrf
     <br><br>
     <center><h1>{{ $allTitles[0]->name }}</h1></center>
     <br><br>
@@ -39,8 +40,9 @@
    
                            <div class="kt-widget__action">
                            <div class="kt-radio-inline">
+                            
                              <label class="kt-radio kt-radio--bold kt-radio--brand">
-                               <input type="radio" name="category" value="{{$candidate->id}}"> <h3><b>Vote</b></h3>
+                               <input type="radio" name="candidate_id" value="{{$candidate->id}}" required=""> <h3><b>Vote</b></h3>
                                <span></span>
                              </label>
                              
@@ -124,27 +126,47 @@
            <h5 style="margin-left:25px;">Blaahh.. Blaahh..Blaahh..Blaahh..Blaahh.. Balahhh.. Blaahh.. Balahhh.. Blaahh.. Balahhh.. Blaahh.. Balahhh.. Blaahh.. Balahhh..</h5>
            <br>
            <div class="kt-radio-list">
-                               <label class="kt-radio kt-radio--bold kt-radio--brand">
-                                   <input type="radio" name="radio1" value="1"> I agree
+                               <!-- <label class="kt-radio kt-radio--bold kt-radio--brand">
+                                   <input type="radio" name="is_votable" value="1"> I agree
                                    <span></span>
                                </label>
                                <label class="kt-radio kt-radio--bold kt-radio--danger">
-                                   <input type="radio" name="radio1" value="0"> I Disagree
+                                   <input type="radio" name="is_votable" value="0"> I Disagree
                                    <span></span>
-                               </label>
-                           </div>
+                               </label> -->
+
+                               <label class="kt-checkbox kt-checkbox--bold kt-checkbox--success" >
+								<input type="checkbox" id="checkme"> I agree to the Terms and Conditions.
+								<span></span>
+                                </label>
                <br>
                <br>
-               <button type="submit" style="width:30%;" class="btn btn-success btn-pill btn-elevate">Submit Vote</button>
+               <input type="submit" style="width:30%;" name="sendNewSms" class="btn btn-success btn-pill btn-elevate"  id="sendNewSms" value=" Submit Vote " disabled/>                           </div>
+
+               <!-- <button type="submit" name="sendNewSms" id="sendNewSms" style="width:30%;" class="btn btn-brand btn-pill btn-elevate">Submit Vote</button> -->
    
            <!--end: Pagination-->
        </div>
    </div>
+   </form>  
 </div>
+
 			
 			
 </body>
+    <script>
+         var checker = document.getElementById('checkme');
+        var sendbtn = document.getElementById('sendNewSms');
+        // when unchecked or checked, run the function
+        checker.onchange = function(){
+        if(this.checked){
+            sendbtn.disabled = false;
+        } else {
+            sendbtn.disabled = true;
+        }
 
+        }
+    </script>
  <script src="{{ asset('./assets/js/demo1/pages/crud/file-upload/dropzonejs.js')}}"></script>
   <script src="{{ asset ('./assets/js/demo1/pages/crud/forms/widgets/select2.js')}}" type="text/javascript"></script>
   <script>  

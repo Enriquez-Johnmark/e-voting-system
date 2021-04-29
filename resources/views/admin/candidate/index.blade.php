@@ -76,6 +76,7 @@
                                                 <th>Grade & Section</th>
                                                 <th>Date of Birth</th>
                                                 <th>Category</th>
+                                                <th>Number of Votes</th>
                                                 <th>Actions </th>
                                                 
                                                 
@@ -84,20 +85,22 @@
         
                                 <tbody>
                                             
-                                            @foreach($allCandidates as $candidate)
+                                            @foreach($results as $result)
+                                            
                                             <tr>
-                                                <td style="width: 10%;"> @if(!empty($candidate->image))
-                                                <img src="{{ asset('/images/backend_images/products/large/'.$candidate->image) }}" style="width:70px;">
+                                                <td style="width: 10%;"> @if(!empty($result->image))
+                                                <img src="{{ asset('/images/backend_images/products/large/'.$result->image) }}" style="width:70px;">
                                                 @endif </td>
-                                                <td> {{ $candidate->firstname}}  {{ $candidate->lastname}}   </td>
-                                                <td> {{ $candidate->grade_section}}   </td>
-                                                <td> {{ $candidate->date_of_birth}}   </td>
-                                                <td> {{ $candidate->category}}   </td>
+                                                <td> {{ $result->firstname}}  {{ $result->lastname}}   </td>
+                                                <td> {{ $result->grade_section}}   </td>
+                                                <td> {{ $result->date_of_birth}}   </td>
+                                                <td> {{ $result->category}}   </td>
+                                                <td>  {{$result->votes_count}}  </td>
                                                 
                                                 
                                                     <td>
                                                     
-                                                    <a href="{{route('candidate.edit',$candidate->id)}}" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Edit">
+                                                    <a href="{{route('candidate.edit',$result->id)}}" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Edit">
                                                         <i class="flaticon-edit-1"></i>
                                                     </a>
                                                 </td>

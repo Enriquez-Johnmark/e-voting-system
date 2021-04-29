@@ -58,7 +58,7 @@
                     </a>
                 </li>
                 <li class="kt-menu__section ">
-                <h4 class="kt-menu__section-text">Settings</h4>
+                <h4 class="kt-menu__section-text">Records</h4>
                 <i class="kt-menu__section-icon flaticon-more-v2"></i>
                 </li>
                 <li class="kt-menu__item " aria-haspopup="true">

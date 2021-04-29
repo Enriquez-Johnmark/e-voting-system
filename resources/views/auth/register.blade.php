@@ -54,7 +54,7 @@
 		<div class="kt-grid__item kt-grid__item--fluid kt-login__wrapper">
 			<div class="kt-login__container">
 				<div class="kt-login__signin">
-					<div class="kt-login__head">
+					<div class="kt-login__head" style="margin-top:-20px;">
 						<h3 class="kt-login__title" style="color:white;">Voter Registration</h3>
 					</div>
 					<form class="kt-form" method="POST" action="{{route('register')}}">
@@ -66,10 +66,10 @@
 							<input class="form-control" style="color:white;" type="text" placeholder="Last Name" name="lastname">
 						</div>
 						<div class="input-group">
-							<input class="form-control" style="color:white;" type="text" placeholder="Age" name="age">
+							<input class="form-control" style="color:white;" type="text" placeholder="Email" name="email" autocomplete="off">
 						</div>
 						<div class="input-group">
-							<input class="form-control" style="color:white;" type="text" placeholder="Email" name="email" autocomplete="off">
+							<input class="form-control" style="color:white;" type="number" placeholder="Age" name="age">
 						</div>
 						<div class="input-group">
 							<input class="form-control" style="color:white;" type="password" placeholder="Password" name="password">

@@ -19,7 +19,7 @@
   <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
 														
 					<!-- begin:: Content -->
-				<h1>Welcome to Admin Panel</h1>
+				<h1 style="margin-left:25px;">Welcome to Admin Panel</h1>
 <!-- end:: Content -->				</div>
 
 

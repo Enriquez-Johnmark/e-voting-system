@@ -5,14 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 // use App\Models\ElectionTitle;
 use App\Models\Candidate;
-use App\Models\ElectionTitle;
+use App\Models\Vote;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 class VoterController extends Controller
 {
     public function index()
     {   
-        return view('voters.dashboard');
+        // $votes = Vote::with('voter')->get();
+
+        $votes = Vote::with('voter')->where('voter_id', '=', Auth::user()->id)->get(); 
+
+        return view('voters.dashboard', compact('votes'));
+  
     }
 
     public function showCandidate()

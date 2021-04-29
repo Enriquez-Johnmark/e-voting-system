@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Candidate;
+use Illuminate\Support\Facades\DB;
 use Image;
 
 
@@ -11,8 +12,23 @@ class CandidateController extends Controller
 {
     public function index()
     {   
-        $allCandidates = Candidate::latest()->get();
-        return view('admin.candidate.index',compact('allCandidates'));
+        // $allCandidates = Candidate::latest()->get();
+        $results = DB::table('votes')
+                ->select('votes.candidate_id',
+                        'candidates.id',
+                        'candidates.firstname',
+                        'candidates.lastname',
+                        'candidates.date_of_birth',
+                        'candidates.category',
+                        'candidates.image',
+                        'candidates.grade_section',
+                        DB::raw('count(votes.id) as votes_count'))
+                ->join('candidates','candidates.id','=','votes.candidate_id')
+                ->groupBy('votes.candidate_id')
+                ->get();
+                // print_r($results);
+                // dd($results);
+        return view('admin.candidate.index',compact('results'));
     }
 
     public function create()
@@ -32,7 +48,7 @@ class CandidateController extends Controller
             $candidate->zodiac_sign         = $data['zodiac_sign'];
             $candidate->height              = $data['height'];
             $candidate->weight              = $data['weight'];
-            $candidate->date_of_birth       = date('Y-m-d');
+            $candidate->date_of_birth       = date("Y-m-d", strtotime(request('date_of_birth')));
             $candidate->blood_type          = $data['blood_type'];
             $candidate->motto               = $data['motto'];
             $candidate->category            = $data['category'];
@@ -86,7 +102,7 @@ class CandidateController extends Controller
                 $candidate->zodiac_sign         = $data['zodiac_sign'];
                 $candidate->height              = $data['height'];
                 $candidate->weight              = $data['weight'];
-                $candidate->date_of_birth       = date('Y-m-d');
+                $candidate->date_of_birth       = date("Y-m-d", strtotime($candidate->date_of_birth  ));
                 $candidate->blood_type          = $data['blood_type'];
                 $candidate->motto               = $data['motto'];
                 $candidate->category            = $data['category'];
@@ -118,7 +134,7 @@ class CandidateController extends Controller
 
                 // dd($candidate->save());
                 
-                return redirect('/candidate')->with('success', 'Candidate has been Updated successfully'); 
+                return redirect('admin/candidate')->with('success', 'Candidate has been Updated successfully'); 
             
            
     }
