@@ -14,14 +14,11 @@ class DashboardController extends Controller
                 'candidates.id',
                 'candidates.firstname',
                 'candidates.lastname',
-                'candidates.date_of_birth',
-                'candidates.category',
-                'candidates.image',
-                'candidates.grade_section',
                 DB::raw('count(votes.id) as votes_count'))
         ->join('candidates','candidates.id','=','votes.candidate_id')
-        ->groupBy('votes.candidate_id')
+        ->groupBy('candidate_id')
         ->get();
+        // dd($results);
         return view('admin.dashboard' ,compact('results'));
     }
 }
