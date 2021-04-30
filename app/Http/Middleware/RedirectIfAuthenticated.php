@@ -28,7 +28,7 @@ class RedirectIfAuthenticated
             if ( Auth::guard($guard)->check() && Auth::user()->role == 1){
                 return redirect()->route('admin.dashboard');
             }
-            elseif( Auth::guard($guard)->check() && Auth::user()->role == 2) {
+            elseif( Auth::guard($guard)->check() && Auth::user()->role == 0) {
                 return redirect()->route('voter.dashboard');
             }
         }
