@@ -71,12 +71,12 @@
                                             
                                             <tr>
                                                 <!-- <th style="width: 10%;">Picture</th> -->
+                                                
                                                 <th>Image</th>
                                                 <th>Full Name</th>
                                                 <th>Grade & Section</th>
                                                 <th>Date of Birth</th>
                                                 <th>Category</th>
-                                                <th>Number of Votes</th>
                                                 <th>Actions </th>
                                                 
                                                 
@@ -85,24 +85,31 @@
         
                                 <tbody>
                                             
-                                            @foreach($results as $result)
+                                            @foreach($allCandidates as $candidates)
                                             
                                             <tr>
-                                                <td style="width: 10%;"> @if(!empty($result->image))
-                                                <img src="{{ asset('/images/backend_images/products/large/'.$result->image) }}" style="width:70px;">
+                                            <input type="hidden" class="serdelete_val" value="{{$candidates->id}}"></input>
+
+                                                <td style="width: 10%;"> @if(!empty($candidates->image))
+                                                <img src="{{ asset('/images/backend_images/products/large/'.$candidates->image) }}" style="width:70px;">
                                                 @endif </td>
-                                                <td> {{ $result->firstname}}  {{ $result->lastname}}   </td>
-                                                <td> {{ $result->grade_section}}   </td>
-                                                <td> {{ $result->date_of_birth}}   </td>
-                                                <td> {{ $result->category}}   </td>
-                                                <td>  {{$result->votes_count}}  </td>
+                                               
+
+                                                <td> {{ $candidates->firstname}}  {{ $candidates->lastname}}   </td>
+                                                <td> {{ $candidates->grade_section}}   </td>
+                                                <td> {{ $candidates->date_of_birth}}   </td>
+                                                <td> {{ $candidates->category}}   </td>
+                                                 
                                                 
-                                                
+                        
                                                     <td>
                                                     
-                                                    <a href="{{route('candidate.edit',$result->id)}}" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Edit">
+                                                    <a href="{{route('candidate.edit',$candidates->id)}}" class="btn btn-sm btn-clean btn-icon btn-icon-md" title="Edit">
                                                         <i class="flaticon-edit-1"></i>
                                                     </a>
+                                                    <button class="btn btn-sm btn-clean btn-icon btn-icon-md deletebtn" title="Delete">
+                                                        <i class="flaticon-delete"></i>
+                                                    </button>
                                                 </td>
 
                                                 
@@ -137,6 +144,68 @@
 
 
 @push('script')
+
+
+<script>
+    $(document).ready(function (){
+
+        $('.deletebtn').click(function (e){
+            
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            const delete_id = $(this).closest("tr").find('.serdelete_val').val();
+            swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to recover this data!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true
+            }).then(function(result){
+                if (result.value) {
+                    
+                    
+
+                    var data = {
+                        "_token" : $('input[name=_token]').val(),
+                        "id" : delete_id,
+                    };
+
+                    $.ajax({
+                        type: "DELETE",
+                        url:    "admin/candidate/delete/"+delete_id,
+                        data: data,
+                        success: function (response) {
+                            swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            ).
+                            then((result) => {
+                                location.reload();
+                            });
+                        }
+                    });
+                    
+                } else if (result.dismiss === 'cancel') {
+                    swal.fire(
+                        'Cancelled',
+                        'Your file is safe :)',
+                        'error'
+                    )
+                }
+            });
+        });
+    });
+    
+</script>
+<script src="./assets/js/demo1/pages/components/extended/sweetalert2.js" type="text/javascript"></script>
 
 <!-- End:: Organization Script -->
 

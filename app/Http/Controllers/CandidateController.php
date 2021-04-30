@@ -12,23 +12,25 @@ class CandidateController extends Controller
 {
     public function index()
     {   
-        // $allCandidates = Candidate::latest()->get();
-        $results = DB::table('votes')
-                ->select('votes.candidate_id',
-                        'candidates.id',
-                        'candidates.firstname',
-                        'candidates.lastname',
-                        'candidates.date_of_birth',
-                        'candidates.category',
-                        'candidates.image',
-                        'candidates.grade_section',
-                        DB::raw('count(votes.id) as votes_count'))
-                ->join('candidates','candidates.id','=','votes.candidate_id')
-                ->groupBy('votes.candidate_id')
-                ->get();
+        $allCandidates = Candidate::latest()->get();
+        
+        // $results = DB::table('votes')
+        //         ->select('votes.candidate_id',
+        //                 'candidates.id',
+        //                 'candidates.firstname',
+        //                 'candidates.lastname',
+        //                 'candidates.date_of_birth',
+        //                 'candidates.category',
+        //                 'candidates.image',
+        //                 'candidates.grade_section',
+        //                 DB::raw('count(votes.id) as votes_count'))
+        //         ->join('candidates','candidates.id','=','votes.candidate_id')
+        //         ->groupBy('votes.candidate_id')
+        //         ->get();
                 // print_r($results);
                 // dd($results);
-        return view('admin.candidate.index',compact('results'));
+            //    dd($results);
+        return view('admin.candidate.index',compact('allCandidates'));
     }
 
     public function create()
@@ -137,6 +139,13 @@ class CandidateController extends Controller
                 return redirect('admin/candidate')->with('success', 'Candidate has been Updated successfully'); 
             
            
+    }
+
+    public function delete($id)
+    {
+        $candidate = Candidate::findOrFail($id);
+        $candidate->delete();
+        return response()->json(['status','Candidate Successfully Delete']);
     }
 
 }

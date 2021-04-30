@@ -20,6 +20,31 @@
 														
 					<!-- begin:: Content -->
 				<h1 style="margin-left:25px;">Welcome to Admin Panel</h1>
+        <br><br><br>
+        <h1 style="margin-left:25px;">Results:</h1>
+        @if($results->isNotEmpty())
+        <table class="table table-striped- table-bordered table-hover table-checkable" style="width:50%;margin-left:20px;">
+          <thead>
+            <tr>
+              <th>Candidate Name</th>
+              <th>Number of Votes</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach($results as $result)
+          <tr>
+              <td>{{$result->firstname}} {{$result->lastname}}</td>
+              <td>{{$result->votes_count}}</td>
+            </tr>
+           @endforeach 
+          </tbody>
+          </table>
+        @else
+        <h1 style="margin-left:20px;">No Data Available</h1>
+        @endif
+
+       
+       
 <!-- end:: Content -->				</div>
 
 

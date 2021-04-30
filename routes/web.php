@@ -50,6 +50,7 @@ Route::group(['prefix'=>'admin','middleware'=>['isAdmin','auth']],function(){
     Route::post('candidate/store', [CandidateController::class, 'store'])->name('candidate.store');
     Route::get('candidate/edit/{id}', [CandidateController::class, 'edit'])->name('candidate.edit');
     Route::put('candidate/update/{id}', [CandidateController::class, 'update'])->name('candidate.update');
+    Route::delete('candidate/delete/{id}', [CandidateController::class, 'delete'])->name('candidate.delete');
 
 });
 
