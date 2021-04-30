@@ -26,7 +26,7 @@
            <div class="kt-widget kt-widget--user-profile-3">
                <div class="kt-widget__top">
                    <div class="kt-widget__media kt-hidden-">
-                       <img src="{{ asset('/images/backend_images/products/large/'.$candidate->image) }}" alt="image">
+                       <img src="{{ asset('storage/pictures/'.$candidate->image) }}" alt="image">
                    </div>
                    <div class="kt-widget__pic kt-widget__pic--danger kt-font-danger kt-font-boldest kt-font-light kt-hidden">
                        

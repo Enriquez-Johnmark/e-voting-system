@@ -33,7 +33,7 @@
           <tbody>
             @foreach($results as $result)
           <tr>
-              <td>{{$result->firstname}} {{$result->lastname}}</td>
+              <td>{{$result->candidate->firstname}} {{$result->candidate->lastname}}</td>
               <td>{{$result->votes_count}}</td>
             </tr>
            @endforeach 

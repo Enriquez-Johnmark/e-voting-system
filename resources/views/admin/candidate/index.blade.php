@@ -91,7 +91,7 @@
                                             <input type="hidden" class="serdelete_val" value="{{$candidates->id}}"></input>
 
                                                 <td style="width: 10%;"> @if(!empty($candidates->image))
-                                                <img src="{{ asset('/images/backend_images/products/large/'.$candidates->image) }}" style="width:70px;">
+                                                <img src="{{ asset('storage/pictures/'.$candidates->image) }}" style="width:70px;">
                                                 @endif </td>
                                                
 
