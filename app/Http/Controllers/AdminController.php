@@ -108,7 +108,7 @@ class AdminController extends Controller
       $admin->lastname            = $data['lastname'];
       $admin->email               = $data['email'];
       $admin->password            = Hash::make($data['password']);
-      $admin->role                = 1;
+      $admin->role                = '1';
       $admin->save();
         return redirect('/login')->with('success', 'Register Sucessfully'); 
 
