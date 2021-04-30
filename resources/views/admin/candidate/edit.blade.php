@@ -118,7 +118,7 @@
                         <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1" required="">
                         <br>
                         <h6>Image Old Value:</h6>
-                        <img src="{{ asset('storage/pictures/'.$candidate->image) }}" style="width:70px;">
+                        <img src="{{ asset('/storage/pictures/'.$candidate->image) }}" style="width:70px;">
 
                       </div>
                   </div>
