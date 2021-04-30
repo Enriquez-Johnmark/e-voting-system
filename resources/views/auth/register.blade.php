@@ -8,7 +8,7 @@
 <base href="../../../../"><!--end::Base Path -->
         <meta charset="utf-8"/>
 
-        <title>Metronic | Login Page 4</title>
+        <title>Voting System | Registration</title>
         <meta name="description" content="Login page example">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -39,7 +39,7 @@
 <link href="./assets/css/demo1/skins/brand/dark.css" rel="stylesheet" type="text/css" />
 <link href="./assets/css/demo1/skins/aside/dark.css" rel="stylesheet" type="text/css" />        <!--end::Layout Skins -->
 
-        <link rel="shortcut icon" href="./assets/media/logos/favicon.ico" />
+      
     </head>
     <!-- end::Head -->
 
