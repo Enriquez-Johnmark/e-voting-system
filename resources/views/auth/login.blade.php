@@ -53,8 +53,9 @@
 			<div class="kt-login__container">
 				<div class="kt-login__signin">
 					<div class="kt-login__head">
-						<h3 class="kt-login__title" style="color:white;">EAC: Login Portal</h3>
-					</div>
+						<h3 class="kt-login__title" style="color:white;margin-bottom:15px;">Emilio Aguinaldo College</h3>
+                        <h4 class="kt-login__title" style="color:white;">Login Portal</h4>
+                    </div>
                     @if(Session::has('success'))
                         
                         <div class="alert alert-success" role="alert">
