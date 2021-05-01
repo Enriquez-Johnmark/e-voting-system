@@ -20,7 +20,7 @@ use App\Http\Controllers\VoteController;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 });
 
 
