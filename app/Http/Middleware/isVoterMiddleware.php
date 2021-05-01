@@ -19,7 +19,7 @@ class isVoterMiddleware
     public function handle(Request $request, Closure $next)
     {
         // return $next($request);
-        if( Auth::check() && Auth::user()->role == 0){
+        if( Auth::check() && Auth::user()->role == 2){
             return $next($request);
         }else{
             return redirect()->route('login');
