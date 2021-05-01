@@ -19,10 +19,11 @@ use App\Http\Controllers\VoteController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
+Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'showForm'])->name('show');
 
 
 
