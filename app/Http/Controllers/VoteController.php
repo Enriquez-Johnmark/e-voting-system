@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Vote;
+use App\Models\VoteMale;
 use App\Models\User;
 
 use Illuminate\Support\Facades\DB;
@@ -21,6 +22,27 @@ class VoteController extends Controller
         $vote = new Vote;
         $vote->voter_id            = Auth::user()->id;
         $vote->candidate_id        = $data['candidate_id'];
+        
+        $male = new VoteMale;
+        $male->voter_id            = Auth::user()->id;
+        $male->male_id             = $data['male_id'];
+
+        // dd($male);
+        $vote->save();
+        $male->save();
+        return redirect()->back()->with('success', 'Candidate has been added successfully'); 
+    }  
+    }
+
+    public function storeForm(Request $request)
+    {
+      if($request->isMethod('post')){
+        $data = $request->all();
+        
+        $vote = new Vote;
+        $vote->voter_id            = Auth::user()->id;
+        $vote->candidate_id        = $data['male_id'];
+       
 
         $vote->save();
         return redirect()->back()->with('success', 'Candidate has been added successfully'); 

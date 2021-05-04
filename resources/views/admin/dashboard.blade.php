@@ -21,7 +21,7 @@
 					<!-- begin:: Content -->
 				<h1 style="margin-left:25px;">Welcome to Admin Panel</h1>
         <br><br><br>
-        <h1 style="margin-left:25px;">Results:</h1>
+        <h3 style="margin-left:25px;">Female Results:</h3>
         @if($results->isNotEmpty())
         <table class="table table-striped- table-bordered table-hover table-checkable" style="width:50%;margin-left:20px;">
           <thead>
@@ -35,6 +35,28 @@
           <tr>
               <td>{{$result->candidate->firstname}} {{$result->candidate->lastname}}</td>
               <td>{{$result->votes_count}}</td>
+            </tr>
+           @endforeach 
+          </tbody>
+          </table>
+        @else
+        <h1 style="margin-left:20px;">No Data Available</h1>
+        @endif
+        <br><br>
+        <h3 style="margin-left:25px;">Male Results</h3>
+        @if($maleres->isNotEmpty())
+        <table class="table table-striped- table-bordered table-hover table-checkable" style="width:50%;margin-left:20px;">
+          <thead>
+            <tr>
+              <th>Candidate Name</th>
+              <th>Number of Votes</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach($maleres as $res)
+          <tr>
+              <td>{{$res->candidate->firstname}} {{$res->candidate->lastname}}</td>
+              <td>{{$res->votes_count}}</td>
             </tr>
            @endforeach 
           </tbody>

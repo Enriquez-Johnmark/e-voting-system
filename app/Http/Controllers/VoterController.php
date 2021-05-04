@@ -24,10 +24,25 @@ class VoterController extends Controller
 
     public function showCandidate()
     {
+        
         $allTitles = DB::table('election_title')
           ->get();
-        $allCandidates = Candidate::get();
-        return view('voters.listcandidates',compact('allCandidates', 'allTitles'));
+
+        $allTerms = DB::table('terms')
+        ->get();
+
+        // $allCandidates = Candidate::get();
+
+        $allFemales = DB::table('candidates')
+            ->where('category','female')
+            ->get();
+
+        $allMales = DB::table('candidates')
+            ->where('category','male')
+            ->get();
+
+        // dd($allTitles);
+        return view('voters.listcandidates',compact('allFemales', 'allMales', 'allTitles','allTerms'));
     }
 
     // public function store(Request $request)

@@ -76,7 +76,7 @@
 							<input class="form-control" style="color:white;" type="text" placeholder="Last Name" name="lastname">
 						</div>
 						<div class="input-group">
-							<input class="form-control" style="color:white;" type="text" placeholder="Email" name="email" autocomplete="off">
+							<input class="form-control" style="color:white;" type="email" placeholder="Email" name="email" autocomplete="off">
 						</div>
 						<div class="input-group">
 							<input class="form-control" style="color:white;" type="password" placeholder="Password" name="password">
@@ -107,6 +107,24 @@
         <!-- begin::Global Config(global config for global JS sciprts) -->
         <script>
             var KTAppOptions = {"colors":{"state":{"brand":"#5d78ff","dark":"#282a3c","light":"#ffffff","primary":"#5867dd","success":"#34bfa3","info":"#36a3f7","warning":"#ffb822","danger":"#fd3995"},"base":{"label":["#c5cbe3","#a1a8c3","#3d4465","#3e4466"],"shape":["#f0f3ff","#d9dffa","#afb4d4","#646c9a"]}}};
+        </script>
+        <script>
+            function ValidateEmail(inputText)
+                {
+                var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                if(inputText.value.match(mailformat))
+                {
+                alert("Valid email address!");
+                document.form1.text1.focus();
+                return true;
+                }
+                else
+                {
+                alert("You have entered an invalid email address!");
+                document.form1.text1.focus();
+                return false;
+                }
+                }
         </script>
         <!-- end::Global Config -->
 

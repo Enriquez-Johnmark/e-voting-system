@@ -66,7 +66,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <img src="./assets/media/company-logos/logo-2.png">      
                             </a>
                         </div>
-
+                        {{$errors}}
                         <div class="kt-login__signin">
                             <div class="kt-login__head">
                                 <h3 class="kt-login__title">Sign In To Admin</h3>

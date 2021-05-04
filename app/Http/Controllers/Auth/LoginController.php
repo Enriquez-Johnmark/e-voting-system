@@ -54,6 +54,7 @@ class LoginController extends Controller
 
     public function login(Request $request){
         $input = $request->all();
+       
         $this->validate($request,[
             'email'     => 'required|email',
             'password'  => 'required',
@@ -67,7 +68,7 @@ class LoginController extends Controller
                 return redirect()->route('voter.dashboard');
             }
         }else{
-            return redirect()->route('login')->with('error', 'Email and Password are wrong');
+            return redirect()->route('login')->with('success', 'Email and Password are wrong');
         }
     }
 }

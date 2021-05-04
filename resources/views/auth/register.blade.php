@@ -56,6 +56,16 @@
 				<div class="kt-login__signin">
 					<div class="kt-login__head" style="margin-top:-20px;">
 						<h3 class="kt-login__title" style="color:white;">Voter Registration</h3>
+						@foreach ($errors->all() as $message) 
+							<div class="alert alert-danger" role="alert">
+                        <div class="alert-icon"><i class="flaticon2-check-mark"></i></div>
+                        <div class="alert-text" style="font-size:15px;">{{$message}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                        </button>
+                        </div>
+            </div>
+						@endforeach
 					</div>
 					<form class="kt-form" method="POST" action="{{route('register')}}">
 						<div class="input-group">
@@ -66,7 +76,7 @@
 							<input class="form-control" style="color:white;" type="text" placeholder="Last Name" name="lastname">
 						</div>
 						<div class="input-group">
-							<input class="form-control" style="color:white;" type="text" placeholder="Email" name="email" autocomplete="off">
+							<input class="form-control" style="color:white;" type="email" placeholder="Email" name="email" autocomplete="off">
 						</div>
 						<div class="input-group">
 							<input class="form-control" style="color:white;" type="number" placeholder="Age" name="age">

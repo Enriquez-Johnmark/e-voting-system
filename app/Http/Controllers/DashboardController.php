@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vote;
+use App\Models\VoteMale;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -24,11 +25,17 @@ class DashboardController extends Controller
         ->groupBy('candidate_id')
         ->with('candidate')
         ->get();
+
+        $maleres = VoteMale::select("male_id", DB::raw("count(votes_male.id) as votes_count"))
+        ->groupBy('male_id')
+        ->with('candidate')
+        ->get();
+        // dd($maleres);
        
         // $results = DB::table('votes')->count();
         // dd($results);
         // dd($results);
-        return view('admin.dashboard' ,compact('results'));
+        return view('admin.dashboard' ,compact('results','maleres'));
 
     }
 }

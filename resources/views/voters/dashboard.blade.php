@@ -23,14 +23,14 @@
           <br>
           <h3>Hi, {{ auth()->user()->firstname}} {{ auth()->user()->lastname}}</h3>
           <br><br><br><br>
-<!--           
+          
           @if($votes->isNotEmpty())
           <h1>Thanks for voting, your vote has been recorded.</h1>
           @else
           <center><button class="btn btn-outline-primary btn-pill btn-elevate" type="button" id="add_votes"><h1>Please Click here to Start Voting</h1></button></center>
 
-          @endif -->
-          <center><button class="btn btn-outline-primary btn-pill btn-elevate" type="button" id="add_votes"><h1>Please Click here to Start Voting</h1></button></center>
+          @endif
+          <!-- <center><button class="btn btn-outline-primary btn-pill btn-elevate" type="button" id="add_votes"><h1>Please Click here to Start Voting</h1></button></center> -->
 
           
 

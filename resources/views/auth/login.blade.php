@@ -49,7 +49,12 @@
 	<div class="kt-grid kt-grid--ver kt-grid--root">
 		<div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v4 kt-login--signin" id="kt_login">
 	<div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" style="background-image: url(./assets/media/bg/bg-2.jpg);">
-		<div class="kt-grid__item kt-grid__item--fluid kt-login__wrapper">
+    
+    <a  id="kt_login_signup_cancel" style="margin-top:20px;margin-left:30px;" href="{{ route('register')}}">
+														Sign Up
+                             </a>
+    
+    <div class="kt-grid__item kt-grid__item--fluid kt-login__wrapper">
 			<div class="kt-login__container">
 				<div class="kt-login__signin">
 					<div class="kt-login__head">
@@ -58,7 +63,7 @@
                     </div>
                     @if(Session::has('success'))
                         
-                        <div class="alert alert-success" role="alert">
+                        <div class="alert alert-danger" role="alert">
                             <div class="alert-icon"><i class="flaticon2-check-mark"></i></div>
                             <div class="alert-text" style="font-size:13px;">{{Session::get('success')}}
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -68,6 +73,16 @@
                         </div>
 
                     @endif
+                    @foreach ($errors->all() as $message) 
+							<div class="alert alert-danger" role="alert">
+                        <div class="alert-icon"><i class="flaticon2-check-mark"></i></div>
+                        <div class="alert-text" style="font-size:15px;">{{$message}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                        </button>
+                        </div>
+                    </div>
+						@endforeach
 					<form class="kt-form" method="post" action="{{ route('login') }}">
 						<div class="input-group">
                             @csrf
@@ -79,9 +94,7 @@
 						
 						<div class="kt-login__actions">
 							<button id="kt_login_signin_submit" type="submit" class="btn btn-brand btn-pill kt-login__btn-primary">Sign In</button>
-                            <a  id="kt_login_signup_cancel" style="padding:15px 25px 15px 25px;" class="btn btn-secondary btn-pill" href="{{ route('register')}}">
-														Sign Up
-                             </a>
+                            
                         </div>
                         
 					</form>
