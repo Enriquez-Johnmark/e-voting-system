@@ -92,7 +92,7 @@
 						
 						<a  id="kt_login_signup_cancel" style="padding:15px 25px 15px 25px;" class="btn btn-secondary btn-pill" href="{{ route('login')}}">
 														Cancel
-                             </a>
+                             </a>&nbsp;&nbsp;&nbsp;
 							<button id="kt_login_signup_submit" class="btn btn-brand btn-pill kt-login__btn-primary">Sign Up</button>&nbsp;&nbsp;
 							
                         </div>
