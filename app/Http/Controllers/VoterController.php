@@ -16,8 +16,8 @@ class VoterController extends Controller
     {   
         // $votes = Vote::with('voter')->get();
 
-        $votes = Vote::with('voter')->where('voter_id', '=', Auth::user()->id)->get(); 
-
+        $votes = Vote::with('voter','candidate')->where('voter_id', '=', Auth::user()->id)->get(); 
+        // dd($votes);
         return view('voters.dashboard', compact('votes'));
   
     }

@@ -26,6 +26,19 @@
           
           @if($votes->isNotEmpty())
           <h1>Thanks for voting, your vote has been recorded.</h1>
+          <div>
+            <br><br>
+            <h4>Your Ballot Receipt:</h4>
+            <br>
+            @foreach($votes as $res)
+              <h4>Female Category:</h4>
+              <h5>{{$res->candidate->firstname}} {{$res->candidate->lastname}}</h5>
+              <br>
+              <h4>Male Category:</h4>
+              <h5>{{$res->candidate->firstname}} {{$res->candidate->lastname}}</h5>
+            @endforeach
+          </div>
+
           @else
           <center><button class="btn btn-outline-primary btn-pill btn-elevate" type="button" id="add_votes"><h1>Please Click here to Start Voting</h1></button></center>
 
