@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 // use App\Models\ElectionTitle;
-use App\Models\Candidate;
+use App\Models\VoteMale;
 use App\Models\Vote;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -16,9 +16,20 @@ class VoterController extends Controller
     {   
         // $votes = Vote::with('voter')->get();
 
-        $votes = Vote::with('voter','candidate')->where('voter_id', '=', Auth::user()->id)->get(); 
+        $voteFemales = Vote::with('voter','candidate')
+            ->where('voter_id', '=', Auth::user()->id)
+            ->get(); 
+
+        $voteMales = VoteMale::with('voter','candidate')
+        ->where('voter_id', '=', Auth::user()->id)
+        ->get(); 
         // dd($votes);
-        return view('voters.dashboard', compact('votes'));
+        // $allMales = Vote::with('voter','candidate')
+        // ->where('voter_id', '=', Auth::user()->id)
+        // ->where('category', 'male')
+        // ->get(); 
+        // dd($votes);
+        return view('voters.dashboard', compact('voteFemales','voteMales'));
   
     }
 

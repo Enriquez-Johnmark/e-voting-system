@@ -24,18 +24,20 @@
           <h3>Hi, {{ auth()->user()->firstname}} {{ auth()->user()->lastname}}</h3>
           <br><br><br><br>
           
-          @if($votes->isNotEmpty())
+          @if($voteFemales->isNotEmpty() || $voteMales->isNotEmpty())
           <h1>Thanks for voting, your vote has been recorded.</h1>
           <div>
             <br><br>
             <h4>Your Ballot Receipt:</h4>
             <br>
-            @foreach($votes as $res)
+            @foreach($voteFemales as $female)
               <h4>Female Category:</h4>
-              <h5>{{$res->candidate->firstname}} {{$res->candidate->lastname}}</h5>
+              <h5>{{$female->candidate->firstname}} {{$female->candidate->lastname}}</h5>
+            @endforeach
               <br>
+            @foreach($voteMales as $male) 
               <h4>Male Category:</h4>
-              <h5>{{$res->candidate->firstname}} {{$res->candidate->lastname}}</h5>
+              <h5>{{$male->candidate->firstname}} {{$male->candidate->lastname}}</h5>
             @endforeach
           </div>
 

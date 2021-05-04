@@ -494,7 +494,7 @@ var KTWizard1 = function () {
 						});
                         setTimeout(function () { 
                             location.reload();
-                            }, 4000);
+                            }, 3000);
 					}
 				});
 			}
