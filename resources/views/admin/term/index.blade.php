@@ -63,14 +63,15 @@
     @endif
     
 <!--  <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#addProduct">Add Products</button> -->
-    @if(!empty($allTerms->count()))
+    <!-- @if(!empty($allTerms->count()))
         <button type="button" class="btn btn-primary waves-effect waves-light"  disabled>Add Title</button>
         <br></br>
         <p>Button Disabled, Cannot Add Another Title If there's a record</p>
         @else
-        <button type="button" class="btn btn-primary waves-effect waves-light" id="add_product">Add Terms</button>
         
-    @endif
+    @endif -->
+    <button type="button" class="btn btn-primary waves-effect waves-light" id="add_product">Add Terms</button>
+
 
     <br><br>
     <!--begin: Datatable -->

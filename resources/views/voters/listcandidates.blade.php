@@ -265,8 +265,11 @@
 					<div class="kt-wizard-v1__content" data-ktwizard-type="step-content">
 						<div class="kt-heading kt-heading--md">Terms and Conditions:</div>
 						<div class="kt-form__section kt-form__section--first">
-							<h4>{{$allTerms[0]->description}}</h4>
+						@foreach($allTerms as $term)
+						<p style="font-size:14px;">{{$term->description}}</p>
+						@endforeach
 						</div>
+						
                         <br><br>
                         <div class="kt-radio-list">
                                <label class="kt-checkbox kt-checkbox--bold kt-checkbox--success" >
@@ -581,27 +584,3 @@ window.onbeforeunload = function() {
 
 
 </html>
-
-			
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
