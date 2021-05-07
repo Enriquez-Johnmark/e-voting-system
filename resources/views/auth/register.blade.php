@@ -82,11 +82,20 @@
 							<input class="form-control" style="color:white;" type="number" placeholder="Age" name="age">
 						</div>
 						<div class="input-group">
-							<input class="form-control" style="color:white;" type="password" placeholder="Password" name="password">
+							<input class="form-control" style="color:white;" id="myInput" type="password" placeholder="Password" name="password">
 						</div>
 						<div class="input-group">
-							<input class="form-control" style="color:white;" type="password" placeholder="Confirm Password" name="password_confirmation">
+							<input class="form-control" style="color:white;" id="myInput2" type="password" placeholder="Confirm Password" name="password_confirmation">
 						</div>
+						<br>
+						<div class="form-group" style="margin-left:25px;">
+                            <div class="kt-checkbox-inline">
+                                <label class="kt-checkbox">
+                                    <input type="checkbox" onclick="myFunction()"> Show Password
+                                    <span></span>
+                                </label>
+                            </div>
+					    </div>
 						
 						<div class="kt-login__actions">
 						
@@ -107,7 +116,22 @@
 	</div>
 	
 <!-- end:: Page -->
-
+<script>
+function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+	var y = document.getElementById("myInput2");
+  if (y.type === "password") {
+    y.type = "text";
+  } else {
+    y.type = "password";
+  }
+}
+</script>
 
         <!-- begin::Global Config(global config for global JS sciprts) -->
         <script>
